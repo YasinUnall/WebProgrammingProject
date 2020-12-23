@@ -12,5 +12,6 @@ namespace WebProgrammingProject.Data
             : base(options)
         {
         }
+
     }
 }
