@@ -8,12 +8,19 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20201221173806_MotorcycleCultureMig.cs" />
     <Compile Remove="Data\Migrations\20201221173806_MotorcycleCultureMig.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201228151512_MotorCultureMigr.cs" />
+    <Compile Remove="Data\Migrations\20201228151512_MotorCultureMigr.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201228152258_MotorCultureMigr.cs" />
+    <Compile Remove="Data\Migrations\20201228152258_MotorCultureMigr.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201228153307_MotorCultureMigration.cs" />
+    <Compile Remove="Data\Migrations\20201228153307_MotorCultureMigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />

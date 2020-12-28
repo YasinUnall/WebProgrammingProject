@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebProgrammingProject.Models;
 
 namespace WebProgrammingProject.Data
 {
@@ -12,6 +13,7 @@ namespace WebProgrammingProject.Data
             : base(options)
         {
         }
+        public DbSet<WebProgrammingProject.Models.ProductViewModel> ProductViewModel { get; set; }
 
     }
 }
