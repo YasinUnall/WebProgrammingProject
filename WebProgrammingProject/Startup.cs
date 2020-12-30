@@ -62,8 +62,6 @@ namespace WebProgrammingProject
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSession();
-            app.UseRouting();
 
             app.UseRouting();
 
