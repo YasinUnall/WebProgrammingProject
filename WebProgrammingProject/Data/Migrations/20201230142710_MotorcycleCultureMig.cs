@@ -2,7 +2,7 @@
 
 namespace WebProgrammingProject.Data.Migrations
 {
-    public partial class MotorCultureMigration : Migration
+    public partial class MotorcycleCultureMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,7 +35,8 @@ namespace WebProgrammingProject.Data.Migrations
                     ProductName = table.Column<string>(nullable: false),
                     StockAmount = table.Column<short>(nullable: false),
                     SupplierID = table.Column<short>(nullable: false),
-                    UnitsOnOrder = table.Column<int>(nullable: false)
+                    UnitsOnOrder = table.Column<int>(nullable: false),
+                    Price = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

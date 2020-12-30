@@ -226,6 +226,9 @@ namespace WebProgrammingProject.Data.Migrations
                         .HasColumnType("smallint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

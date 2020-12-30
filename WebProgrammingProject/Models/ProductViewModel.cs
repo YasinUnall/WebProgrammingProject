@@ -22,7 +22,10 @@ namespace WebProgrammingProject.Models
         public short SupplierID { get; set; }
         [Required]
         public int UnitsOnOrder { get; set; }
-        
+
+        [Required]
+        public int Price { get; set; }
+
 
         [ForeignKey("SupplierID")]
         public SupplierViewModel Supplier { get; set; }

@@ -10,8 +10,8 @@ using WebProgrammingProject.Data;
 namespace WebProgrammingProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201228153422_MotorCultureMigration")]
-    partial class MotorCultureMigration
+    [Migration("20201230142710_MotorcycleCultureMig")]
+    partial class MotorcycleCultureMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -227,6 +227,9 @@ namespace WebProgrammingProject.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<string>("ProductName")
                         .IsRequired()

@@ -5,7 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <h1>Store</h1>
+
+
+        </div>
+    </div>
+</header>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -29,26 +37,29 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StockAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitsOnOrder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Supplier.Address)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StockAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsOnOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier.Address)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+
