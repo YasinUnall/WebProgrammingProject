@@ -12,6 +12,7 @@ using WebProgrammingProject.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebProgrammingProject.Models;
 
 namespace WebProgrammingProject
 {
@@ -30,8 +31,17 @@ namespace WebProgrammingProject
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<UserDetails>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+            });
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -52,6 +62,8 @@ namespace WebProgrammingProject
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
+            app.UseRouting();
 
             app.UseRouting();
 
