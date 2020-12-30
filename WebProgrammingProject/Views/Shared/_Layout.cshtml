@@ -49,6 +49,10 @@
                     <partial name="_LoginPartial" />
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-area="" asp-controller="AdminPanel" asp-action="Index">Admin Panel</a></li>
+                    }
                 </ul>
             </div>
         </div>
