@@ -55,6 +55,10 @@ namespace WebProgrammingProject.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
+            [Display(Name = "Address")]
+            public string Address { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -87,7 +91,8 @@ namespace WebProgrammingProject.Areas.Identity.Pages.Account
                 {
                     FirstName = Input.FirstName, 
                     LastName = Input.LastName, 
-                    UserName = Input.Email, 
+                    Address = Input.Address,
+                    UserName = Input.Email,
                     Email = Input.Email
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);

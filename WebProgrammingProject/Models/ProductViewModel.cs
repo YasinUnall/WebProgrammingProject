@@ -15,17 +15,18 @@ namespace WebProgrammingProject.Models
 
         [Required]
         public string ProductName { get; set; }
+
         [Required]
         public short StockAmount { get; set; }
 
         [Required]
         public short SupplierID { get; set; }
+
         [Required]
         public int UnitsOnOrder { get; set; }
 
         [Required]
         public int Price { get; set; }
-
 
         [ForeignKey("SupplierID")]
         public SupplierViewModel Supplier { get; set; }
