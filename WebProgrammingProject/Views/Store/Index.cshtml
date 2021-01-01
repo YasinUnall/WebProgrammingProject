@@ -24,14 +24,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.StockAmount)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.UnitsOnOrder)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Supplier)
+                @Html.DisplayNameFor(model => model.Supplier.CompanyName)
             </th>
             <th></th>
         </tr>
@@ -39,20 +39,23 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StockAmount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UnitsOnOrder)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Supplier.Address)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockAmount)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.UnitsOnOrder)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+            </td>
+        </tr>
         }
     </tbody>
 </table>

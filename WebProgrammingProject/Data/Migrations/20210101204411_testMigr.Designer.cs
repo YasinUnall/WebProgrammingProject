@@ -10,8 +10,8 @@ using WebProgrammingProject.Data;
 namespace WebProgrammingProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201231174621_MotorcycleCultureMig")]
-    partial class MotorcycleCultureMig
+    [Migration("20210101204411_testMigr")]
+    partial class testMigr
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

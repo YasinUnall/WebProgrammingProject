@@ -13,7 +13,7 @@ namespace WebProgrammingProject.Data
             : base(options)
         {
         }
-        public DbSet<WebProgrammingProject.Models.ProductViewModel> ProductViewModel { get; set; }
+        public DbSet<WebProgrammingProject.Models.ProductViewModel> Products { get; set; }
 
     }
 }
