@@ -14,9 +14,11 @@ namespace WebProgrammingProject.Models
         public short ProductID { get; set; }
 
         [Required]
+        [Display(Name = "Name")]
         public string ProductName { get; set; }
 
         [Required]
+        [Display(Name = "Amount in Stock")]
         public short StockAmount { get; set; }
 
         [Required]
@@ -26,7 +28,11 @@ namespace WebProgrammingProject.Models
         public int UnitsOnOrder { get; set; }
 
         [Required]
+        [Display(Name = "Price")]
         public int Price { get; set; }
+
+        [Required]
+        public string ImagePath { get; set; }
 
         [ForeignKey("SupplierID")]
         public SupplierViewModel Supplier { get; set; }

@@ -59,6 +59,11 @@ namespace WebProgrammingProject.Areas.Identity.Pages.Account
             public string Address { get; set; }
 
             [Required]
+            [Phone]
+            [Display(Name = "Phone Number")]
+            public string Phone { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }

@@ -16,6 +16,7 @@ namespace WebProgrammingProject.Models
         [Required]
         [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
+
         [Required]
         public string ContactName { get; set; }
         [Required]

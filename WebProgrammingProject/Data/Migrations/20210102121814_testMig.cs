@@ -2,7 +2,7 @@
 
 namespace WebProgrammingProject.Data.Migrations
 {
-    public partial class testMigr : Migration
+    public partial class testMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,6 +34,11 @@ namespace WebProgrammingProject.Data.Migrations
 
             migrationBuilder.AddColumn<string>(
                 name: "LastName",
+                table: "AspNetUsers",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "Phone",
                 table: "AspNetUsers",
                 nullable: true);
 
@@ -83,7 +88,8 @@ namespace WebProgrammingProject.Data.Migrations
                     StockAmount = table.Column<short>(nullable: false),
                     SupplierID = table.Column<short>(nullable: false),
                     UnitsOnOrder = table.Column<int>(nullable: false),
-                    Price = table.Column<int>(nullable: false)
+                    Price = table.Column<int>(nullable: false),
+                    ImagePath = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,6 +126,10 @@ namespace WebProgrammingProject.Data.Migrations
 
             migrationBuilder.DropColumn(
                 name: "LastName",
+                table: "AspNetUsers");
+
+            migrationBuilder.DropColumn(
+                name: "Phone",
                 table: "AspNetUsers");
 
             migrationBuilder.AlterColumn<string>(

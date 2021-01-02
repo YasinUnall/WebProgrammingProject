@@ -10,8 +10,8 @@ using WebProgrammingProject.Data;
 namespace WebProgrammingProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210101204411_testMigr")]
-    partial class testMigr
+    [Migration("20210102121814_testMig")]
+    partial class testMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -159,6 +159,10 @@ namespace WebProgrammingProject.Data.Migrations
                         .HasColumnType("smallint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -268,6 +272,9 @@ namespace WebProgrammingProject.Data.Migrations
                         .HasMaxLength(256);
 
                     b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
