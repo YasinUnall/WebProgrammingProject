@@ -10,12 +10,24 @@
         <div class="mx-auto text-center">
             <h1>Store</h1>
 
-            <p>You can choose </p>
+            <div class="row">
+                <div class="col-md-2">
+                    @*<img src="~/assets/img/fatboy2020.png" />*@
+                    @foreach (var item in Model)
+                    {
+                        <img src="~/assets/img/fatboy2020.png" />
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                        @Html.DisplayFor(modelItem => item.StockAmount)
+                        @Html.DisplayFor(modelItem => item.Price)
+                    }
+                </div>
+            </div>
+
         </div>
     </div>
 </header>
 
-<table class="table">
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -24,9 +36,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.StockAmount)
             </th>
-            @*<th>
+            <th>
                 @Html.DisplayNameFor(model => model.UnitsOnOrder)
-            </th>*@
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
@@ -46,9 +58,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.StockAmount)
             </td>
-            @*<td>
-            @Html.DisplayFor(modelItem => item.UnitsOnOrder)
-            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
@@ -58,6 +67,6 @@
         </tr>
         }
     </tbody>
-</table>
+</table>*@
 
 
