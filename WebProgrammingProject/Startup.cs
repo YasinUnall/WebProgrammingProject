@@ -13,6 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebProgrammingProject.Models;
+using System.Globalization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.Options;
 
 namespace WebProgrammingProject
 {
@@ -28,14 +31,14 @@ namespace WebProgrammingProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<MotoCultureDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<UserDetails, IdentityRole>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<MotoCultureDbContext>();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -44,9 +47,37 @@ namespace WebProgrammingProject
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.User.RequireUniqueEmail = true;
+                options.Password.RequireLowercase = false;
             });
 
+            //Localization----------------------------------------------------------------------
+            services.AddLocalization(options =>
+            {
+                options.ResourcesPath = "Resources";
+            });
+
+            services
+                  .AddMvc()
+                  .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                  .AddDataAnnotationsLocalization();
             services.AddControllersWithViews();
+            services.Configure<RequestLocalizationOptions>(
+                opt =>
+                {
+                    var supportedCulteres = new List<CultureInfo>
+                    {
+                        new CultureInfo("tr-TR"),
+                        new CultureInfo("en-US")
+                    };
+                    opt.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("tr-TR");
+                    opt.SupportedCultures = supportedCulteres;
+                    opt.SupportedUICultures = supportedCulteres;
+                });
+            services.AddRazorPages();
+        
+        //Localization----------------------------------------------------------------------
+
+        services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
@@ -68,6 +99,10 @@ namespace WebProgrammingProject
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //Localization----------------------------------------------------------------------
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+            //Localization----------------------------------------------------------------------
 
             app.UseAuthentication();
             app.UseAuthorization();

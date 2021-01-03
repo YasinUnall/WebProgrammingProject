@@ -7,9 +7,9 @@ using WebProgrammingProject.Models;
 
 namespace WebProgrammingProject.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<UserDetails>
+    public class MotoCultureDbContext : IdentityDbContext<UserDetails>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public MotoCultureDbContext(DbContextOptions<MotoCultureDbContext> options)
             : base(options)
         {
         }

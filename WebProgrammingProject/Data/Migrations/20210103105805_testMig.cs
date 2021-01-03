@@ -27,6 +27,12 @@ namespace WebProgrammingProject.Data.Migrations
                 table: "AspNetUsers",
                 nullable: true);
 
+            migrationBuilder.AddColumn<int>(
+                name: "Balance",
+                table: "AspNetUsers",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.AddColumn<string>(
                 name: "FirstName",
                 table: "AspNetUsers",
@@ -118,6 +124,10 @@ namespace WebProgrammingProject.Data.Migrations
 
             migrationBuilder.DropColumn(
                 name: "Address",
+                table: "AspNetUsers");
+
+            migrationBuilder.DropColumn(
+                name: "Balance",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(

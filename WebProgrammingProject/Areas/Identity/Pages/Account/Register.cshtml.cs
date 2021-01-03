@@ -92,13 +92,15 @@ namespace WebProgrammingProject.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new UserDetails 
+                var user = new UserDetails
                 {
-                    FirstName = Input.FirstName, 
-                    LastName = Input.LastName, 
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName,
                     Address = Input.Address,
+                    Phone = Input.Phone,
                     UserName = Input.Email,
-                    Email = Input.Email
+                    Email = Input.Email,
+                    Balance = 0
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

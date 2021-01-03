@@ -13,9 +13,9 @@ namespace WebProgrammingProject.Controllers
 {
     public class StoreController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly MotoCultureDbContext _context;
 
-        public StoreController(ApplicationDbContext context)
+        public StoreController(MotoCultureDbContext context)
         {
             _context = context;
         }

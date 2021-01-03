@@ -1,12 +1,17 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.Extensions.Options
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-            <h1 class="display-4">Welcome</h1>
-            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <div class="mx-auto text-center text-white">
+            <h1 class="display-4">@localizer["WELCOME"]</h1>
+            <p>@localizer["A site for purchasing chopper or cruiser motorcycles."]</p>
         </div>
     </div>
 </header>

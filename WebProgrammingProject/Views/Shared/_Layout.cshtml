@@ -20,23 +20,8 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
-<body id="page-top" style="background-color:darkgray">
-    @*<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>*@
+<body id="page-top" style="background-color:rgb(109, 94, 94)">
+    
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">Motorcycle Culture</a>
@@ -47,13 +32,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-area="" asp-controller="Store" asp-action="Index">Store</a></li>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-area="" asp-controller="AdminPanel" asp-action="Index">Admin Panel</a></li>
                     }
                     <partial name="_LoginPartial" />
+                    <li class="nav-item"><partial name="_Culture" /></li>
                 </ul>
             </div>
         </div>

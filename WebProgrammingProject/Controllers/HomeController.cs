@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebProgrammingProject.Models;
@@ -11,6 +14,7 @@ namespace WebProgrammingProject.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -18,20 +22,24 @@ namespace WebProgrammingProject.Controllers
             _logger = logger;
         }
 
+        //[Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Index2()
+        //Localization----------------------------------------------------------------------
+        [HttpPost]
+        public IActionResult Cookie(string culture, string returnUrl)
         {
-            return View();
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(10) }
+                );
+            return LocalRedirect(returnUrl);
         }
-
-        public IActionResult About()
-        {
-            return View();
-        }
+        //Localization----------------------------------------------------------------------
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebProgrammingProject.Models.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="" style="margin:100px">
+    <div class="container d-flex h-100">
+        <div class="mx-auto text-white">
+            <p class="text-white">
+                <a asp-action="Create">Create New</a>
+            </p>
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StockAmount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UnitsOnOrder)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ImagePath)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Supplier)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StockAmount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UnitsOnOrder)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ImagePath)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Supplier.Address)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</header>
+
+
+

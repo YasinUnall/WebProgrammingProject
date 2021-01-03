@@ -12,14 +12,14 @@
             @foreach (var item in Model)
             {
                 <div class="card" style="width: 40rem;">
-                    <img src="~/assets/img/fatboy2020.png" class="card-img-top" alt="...">
+                    <img src="@Url.Content(item.ImagePath)" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.ProductName)</h5>
                         <p class="card-text">
                             @Html.DisplayNameFor(model => model.StockAmount): @Html.DisplayFor(modelItem => item.StockAmount)<br />
                             @Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem => item.Price)<br />
                         </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Buy</a>
                     </div>
                 </div>
                 <br />

@@ -9,8 +9,8 @@ using WebProgrammingProject.Data;
 
 namespace WebProgrammingProject.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210102121814_testMig")]
+    [DbContext(typeof(MotoCultureDbContext))]
+    [Migration("20210103105805_testMig")]
     partial class testMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -239,6 +239,9 @@ namespace WebProgrammingProject.Data.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Balance")
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
