@@ -1,4 +1,8 @@
-﻿@model IEnumerable<WebProgrammingProject.Models.ProductViewModel>
+﻿@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.Extensions.Options
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<WebProgrammingProject.Models.ProductViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,10 +20,10 @@
                     <div class="card-body">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.ProductName)</h5>
                         <p class="card-text">
-                            @Html.DisplayNameFor(model => model.StockAmount): @Html.DisplayFor(modelItem => item.StockAmount)<br />
-                            @Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem => item.Price)<br />
+                            @localizer["Stock Amount"]: @Html.DisplayFor(modelItem => item.StockAmount)<br />
+                            @localizer["Price"]: @Html.DisplayFor(modelItem => item.Price)<br />
                         </p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <a id="buy" data-id="@item.ProductID" href="#" class="btn btn-primary">@localizer["Buy"]</a>
                     </div>
                 </div>
                 <br />
@@ -27,5 +31,36 @@
         </div>
     </div>
 </header>
+
+
+<script>
+    $(document).ready(function () {
+        buy();
+    });
+
+    function buy() {
+
+        $('#buy').on('click', function () {
+
+            let productID = $(this).attr("data-id");
+
+            $.ajax({
+            url: '@Url.Action("BuyMotorcycle","Store")',
+                type: "POST",
+                data: { motoID: productID },
+                success: function (data) {
+                    if (data == "success") {
+                        alert("Success"
+                        ).then(function () {
+                            window.location.href = '@Url.Action("Index","Store")';
+                        });
+                    }
+                    else
+                        alert("Failed");
+            }
+            });
+        })
+    }
+</script>
 
 

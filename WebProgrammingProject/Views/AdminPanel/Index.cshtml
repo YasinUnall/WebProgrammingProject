@@ -1,4 +1,8 @@
-﻿@model IEnumerable<WebProgrammingProject.Models.ProductViewModel>
+﻿@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.Extensions.Options
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<WebProgrammingProject.Models.ProductViewModel>
 
 @{
     ViewData["Title"] = "Index";

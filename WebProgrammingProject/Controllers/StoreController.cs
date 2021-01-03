@@ -20,6 +20,33 @@ namespace WebProgrammingProject.Controllers
             _context = context;
         }
 
+        public JsonResult BuyMotorcycle(short motoID)
+        {
+            Models.ProductViewModel motorcycle = _context.Products.Find(motoID);
+            var user = _context.Users.Where(u => u.Email == User.Identity.Name).FirstOrDefault();
+
+            try
+            {
+                if (user.Balance >= motorcycle.Price)
+                {
+                    user.Balance = user.Balance - motorcycle.Price;
+                    _context.SaveChanges();
+
+                    return Json("success");
+                }
+                else
+                {
+                    return Json("Not enough balance.");
+                }
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+
+            }
+
+        }
+
         // GET: ProductViewModels
         public async Task<IActionResult> Index()
         {

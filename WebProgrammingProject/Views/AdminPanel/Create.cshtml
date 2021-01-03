@@ -1,11 +1,15 @@
-﻿@model WebProgrammingProject.Models.ProductViewModel
+﻿@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.Extensions.Options
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model WebProgrammingProject.Models.ProductViewModel
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>@localizer["Create"]</h1>
 
 <h4>ProductViewModel</h4>
 <hr />
@@ -25,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="SupplierID" class="control-label"></label>
-                <select asp-for="SupplierID" class ="form-control" asp-items="ViewBag.SupplierID"></select>
+                <select asp-for="SupplierID" class="form-control" asp-items="ViewBag.SupplierID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="UnitsOnOrder" class="control-label"></label>
@@ -50,7 +54,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">@localizer["Back to List"]</a>
 </div>
 
 @section Scripts {
