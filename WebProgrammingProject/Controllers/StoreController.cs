@@ -20,6 +20,7 @@ namespace WebProgrammingProject.Controllers
             _context = context;
         }
 
+        [Authorize]
         public JsonResult BuyMotorcycle(short motoID)
         {
             Models.ProductViewModel motorcycle = _context.Products.Find(motoID);
